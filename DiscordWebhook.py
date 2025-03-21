@@ -33,7 +33,7 @@ class DiscordWebhookEventListener(DeadlineEvents.DeadlineEventListener):
         del self.OnJobErrorCallback
 
     def OnJobError(self, job, error, *args):
-        message = ":exclamation: Job error. **Error:** {error}"
+        message = f":exclamation: Job error. **Error:** {error}"
         self.send_discord_message(job, message)
 
     def OnJobStarted(self, job):

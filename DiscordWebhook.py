@@ -71,7 +71,6 @@ class DiscordWebhookEventListener(DeadlineEvents.DeadlineEventListener):
 
     def send_discord_message(self, job, message):
         discord_webhook_url = self.GetConfigEntry("DiscordWebhookURL")
-
         job_name = job.JobName
         user_name = job.JobUserName
 

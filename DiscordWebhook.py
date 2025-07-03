@@ -22,6 +22,7 @@ class DiscordWebhookEventListener(DeadlineEvents.DeadlineEventListener):
         self.OnJobResumedCallback += self.OnJobResumed
         self.OnJobStartedCallback += self.OnJobStarted
         self.OnJobErrorCallback += self.OnJobError
+        self.OnJobErrorCallback += self.OnJobDeleted
 
     def Cleanup(self):
         del self.OnJobFinishedCallback
@@ -31,6 +32,7 @@ class DiscordWebhookEventListener(DeadlineEvents.DeadlineEventListener):
         del self.OnJobResumedCallback
         del self.OnJobStartedCallback
         del self.OnJobErrorCallback
+        del self.OnJobDeleted
 
     def OnJobError(self, job, error, *args):
         message = f":exclamation: Job error. **Error:** {error}"
@@ -67,6 +69,10 @@ class DiscordWebhookEventListener(DeadlineEvents.DeadlineEventListener):
 
     def OnJobFailed(self, job):
         message = ":x: Job failed."
+        self.send_discord_message(job, message)
+
+    def OnJobDeleted(self, job):
+        message = ":scream: Job deleted."
         self.send_discord_message(job, message)
 
     def send_discord_message(self, job, message):

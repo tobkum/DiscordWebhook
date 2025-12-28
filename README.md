@@ -1,6 +1,6 @@
 1. Create a new webhook on your Discord server under the server settings, refer to webhook.png
 
-2. Copy the .param and .py files into your repository under \events, in my case that's under 'C:\DeadlineRepository10\events\'
+2. Copy the .param and .py files into your repository under \events, e.g. under 'C:\DeadlineRepository10\events\' (depending on your installation path)
 
 3. In Deadline Monitor, go to Tools -> Synchronize Monitor Scripts and Plugins
 
